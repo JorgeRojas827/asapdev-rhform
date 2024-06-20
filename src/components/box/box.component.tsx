@@ -1,21 +1,21 @@
 import { ComponentProps, ElementType } from "react";
 import clsx from "clsx";
 
-type BoxProps<E extends ElementType> = Omit<ComponentProps<E>, "tag"> & {
-  tag?: E;
-  cltagsName?: string;
+type TBoxProps<T extends ElementType> = Omit<ComponentProps<T>, "tag"> & {
+  tag?: T;
   children?: React.ReactNode;
+  className?: string;
 };
 
-export const Box = <E extends ElementType = "div">({
+export const Box = <T extends ElementType = "div">({
   tag,
   children,
   className,
-  ...props
-}: BoxProps<E>) => {
+  ...rest
+}: TBoxProps<T>) => {
   const Tag = tag || "div";
   return (
-    <Tag {...props} className={clsx(className)}>
+    <Tag {...rest} className={clsx(className)}>
       {children}
     </Tag>
   );

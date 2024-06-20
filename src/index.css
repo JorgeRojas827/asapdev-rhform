@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+@layer backgrounds {
+  .bg-gradient-full-size {
+    @apply from-teal-500 flex justify-center items-center to-cyan-800 bg-gradient-to-br w-screen h-screen;
+  }
+
+  .bg-main-card {
+    @apply w-4/5 md:w-1/2 lg:w-1/3 min-h-96 bg-white rounded-xl;
+  }
+}

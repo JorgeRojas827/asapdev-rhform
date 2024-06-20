@@ -1,6 +1,7 @@
 import path from "path";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import { VitePluginFonts } from "vite-plugin-fonts";
 
 export default defineConfig({
   resolve: {
@@ -14,5 +15,17 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "./src/assets"),
     },
   },
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePluginFonts({
+      google: {
+        families: [
+          {
+            name: "Inter",
+            styles: "ital,wght@0,400;0,700;1,400;1,700",
+          },
+        ],
+      },
+    }),
+  ],
 });
